@@ -1,2 +1,1 @@
-# pr1crud
-A basic CRUD operation
+Sorts of basic concepts in Golang including concurrency.
