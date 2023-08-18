@@ -14,27 +14,27 @@ import (
 )
 
 type Leveldbinterface interface {
-	//NewLevelDB(dbPath string)(*LevelDB,error)
-	Put(key string ,newEntry Transaction)(error)
-	Get(key string)(Transaction,error)
+	NewLevelDB(dbPath string)(*LevelDB,error)
+	Put(key string ,newEntry LdgrTxn)(error)
+	Get(key string)(LdgrTxn,error)
 }
 
 type LevelDB struct {
 	db *leveldb.DB
 }
 
-func Create_Database(path string)(*LevelDB) {
-	db, err := leveldb.OpenFile(path, nil)
+func Create_Database(dbPath string)(*LevelDB) {
+	db, err := leveldb.OpenFile(dbPath, nil)
 	if err != nil{
 		fmt.Println("Error in Creating Database")
 	}
 	return &LevelDB{db:db}
 
 }
-func PopulateDB(db *leveldb.DB) {
+/*func PopulateDB(db *leveldb.DB) {
 	for i := 1; i <= 1000; i++ {
 		key := fmt.Sprintf("SIM%d", i)
-		value := fmt.Sprintf(`{"val": %d, "ver": %f,"valid":%v}`, i, 1.0, false)
+		value := fmt.Sprintf(`{"val": %d, "ver": %f}`, i, 1.0)
 
 		err := db.Put([]byte(key), []byte(value), nil)
 		if err != nil {
@@ -43,7 +43,7 @@ func PopulateDB(db *leveldb.DB) {
 	}
 	fmt.Println("Database populated successfully")
 }
-
+*/
 func (ldb *LevelDB) Close() {
 	ldb.db.Close()
 }
@@ -52,22 +52,22 @@ func (ldb *LevelDB) Close() {
 //var db *leveldb.DB
 
 
-func (ldb *LevelDB) Get(key string) (Transaction, error) {
+func (ldb *LevelDB) Get(key string) (LocalTxnInfo, error) {
     data, err := ldb.db.Get([]byte(key), nil)
     if err != nil {
-        return Transaction{}, err
+        return LocalTxnInfo{}, err
     }
 
-    var TxnById Transaction
+    var TxnById LocalTxnInfo
     err = json.Unmarshal(data, &TxnById)
     if err != nil {
-        return Transaction{}, err
+        return LocalTxnInfo{}, err
     }
 
     return TxnById, nil
 }
 
-func(ldb *LevelDB)Put(key string, newEntry Transaction) error {
+func(ldb *LevelDB)Add(key string, newEntry LocalTxnInfo) error {
     newData, err := json.Marshal(newEntry)
     if err != nil {
         return err
@@ -83,17 +83,17 @@ func(ldb *LevelDB)Put(key string, newEntry Transaction) error {
 
 func (ldb *LevelDB)GetallInCsv()error{
 
-	outputFile , err := os.Create("Output.csv")
+	 Result, err := os.Create("Result.csv")
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer outputFile.Close()
+	defer Result.Close()
 
-	writer := csv.NewWriter(outputFile)
-	defer writer.Flush()
+	Update := csv.NewWriter(Result)
+	defer Update.Flush()
 
 	header := []string{"key", "value"}
-	writer.Write(header)
+	Update.Write(header)
 
 	iter := ldb.db.NewIterator(nil , nil)
 
@@ -102,7 +102,7 @@ func (ldb *LevelDB)GetallInCsv()error{
 				string(iter.Key()),
 				string(iter.Value()),
 			}
-			writer.Write(record)
+			Update.Write(record)
 	}
 	iter.Release()
 	return iter.Error()

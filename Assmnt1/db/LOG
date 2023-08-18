@@ -145,3 +145,103 @@
 12:10:34.478402 db@open done T·16.787921ms
 12:10:34.517578 db@close closing
 12:10:34.517692 db@close done T·107.49µs
+=============== Aug 18, 2023 (IST) ===============
+11:06:15.200740 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+11:06:15.201274 version@stat F·[3 1] S·45KiB[34KiB 11KiB] Sc·[0.75 0.00]
+11:06:15.201285 db@open opening
+11:06:15.201396 journal@recovery F·1
+11:06:15.202060 journal@recovery recovering @31
+11:06:15.209569 memdb@flush created L0@33 N·1000 S·11KiB "SIM..=1),v10011":"SIM..99),v11009"
+11:06:15.210020 version@stat F·[4 1] S·57KiB[46KiB 11KiB] Sc·[1.00 0.00]
+11:06:15.215970 db@janitor F·7 G·0
+11:06:15.215997 db@open done T·14.704512ms
+11:06:15.216044 table@compaction L0·3 -> L1·0 S·35KiB Q·11011
+11:06:15.218948 table@build created L1@36 N·1000 S·11KiB "SIM..=1),v10011":"SIM..99),v11009"
+11:06:15.218977 version@stat F·[1 2] S·33KiB[11KiB 22KiB] Sc·[0.25 0.00]
+11:06:15.221798 table@compaction committed F-2 S-23KiB Ke·0 D·2000 T·5.718475ms
+11:06:15.221952 table@remove removed @33
+11:06:15.222057 table@remove removed @30
+11:06:15.222146 table@remove removed @27
+=============== Aug 18, 2023 (IST) ===============
+12:08:36.359702 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+12:08:36.393065 version@stat F·[1 2] S·33KiB[11KiB 22KiB] Sc·[0.25 0.00]
+12:08:36.393092 db@open opening
+12:08:36.393247 journal@recovery F·1
+12:08:36.393822 journal@recovery recovering @34
+12:08:36.394718 version@stat F·[1 2] S·33KiB[11KiB 22KiB] Sc·[0.25 0.00]
+12:08:36.418614 db@janitor F·5 G·0
+12:08:36.418653 db@open done T·25.550604ms
+=============== Aug 18, 2023 (IST) ===============
+12:20:06.104497 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+12:20:06.107670 version@stat F·[1 2] S·33KiB[11KiB 22KiB] Sc·[0.25 0.00]
+12:20:06.107686 db@open opening
+12:20:06.107801 journal@recovery F·1
+12:20:06.108225 journal@recovery recovering @37
+12:20:06.108854 version@stat F·[1 2] S·33KiB[11KiB 22KiB] Sc·[0.25 0.00]
+12:20:06.144436 db@janitor F·5 G·0
+12:20:06.144462 db@open done T·36.763574ms
+=============== Aug 18, 2023 (IST) ===============
+12:39:39.965540 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+12:39:39.968405 version@stat F·[1 2] S·33KiB[11KiB 22KiB] Sc·[0.25 0.00]
+12:39:39.968416 db@open opening
+12:39:39.968492 journal@recovery F·1
+12:39:39.968911 journal@recovery recovering @39
+12:39:39.969569 version@stat F·[1 2] S·33KiB[11KiB 22KiB] Sc·[0.25 0.00]
+12:39:40.002305 db@janitor F·5 G·0
+12:39:40.002329 db@open done T·33.905688ms
+=============== Aug 18, 2023 (IST) ===============
+12:42:59.061983 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+12:42:59.065259 version@stat F·[1 2] S·33KiB[11KiB 22KiB] Sc·[0.25 0.00]
+12:42:59.065276 db@open opening
+12:42:59.065394 journal@recovery F·1
+12:42:59.065800 journal@recovery recovering @41
+12:42:59.075210 memdb@flush created L0@43 N·3 S·159B "SIM1,v11012":"SIM3,v11014"
+12:42:59.075829 version@stat F·[2 2] S·33KiB[11KiB 22KiB] Sc·[0.50 0.00]
+12:42:59.081617 db@janitor F·6 G·0
+12:42:59.081638 db@open done T·16.354174ms
+=============== Aug 18, 2023 (IST) ===============
+14:21:09.948878 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+14:21:09.951838 version@stat F·[2 2] S·33KiB[11KiB 22KiB] Sc·[0.50 0.00]
+14:21:09.951855 db@open opening
+14:21:09.951946 journal@recovery F·1
+14:21:09.952359 journal@recovery recovering @44
+14:21:09.953168 version@stat F·[2 2] S·33KiB[11KiB 22KiB] Sc·[0.50 0.00]
+14:21:09.988091 db@janitor F·6 G·0
+14:21:09.988169 db@open done T·36.298918ms
+=============== Aug 18, 2023 (IST) ===============
+14:39:45.544742 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+14:39:45.547640 version@stat F·[2 2] S·33KiB[11KiB 22KiB] Sc·[0.50 0.00]
+14:39:45.547654 db@open opening
+14:39:45.547735 journal@recovery F·1
+14:39:45.548149 journal@recovery recovering @46
+14:39:45.557830 memdb@flush created L0@48 N·3 S·166B "SIM122,v11017":"SIM3,v11018"
+14:39:45.558323 version@stat F·[3 2] S·34KiB[11KiB 22KiB] Sc·[0.75 0.00]
+14:39:45.564146 db@janitor F·7 G·0
+14:39:45.564169 db@open done T·16.507925ms
+=============== Aug 18, 2023 (IST) ===============
+14:59:51.857577 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+14:59:51.860510 version@stat F·[3 2] S·34KiB[11KiB 22KiB] Sc·[0.75 0.00]
+14:59:51.860527 db@open opening
+14:59:51.860661 journal@recovery F·1
+14:59:51.861080 journal@recovery recovering @49
+14:59:51.861810 version@stat F·[3 2] S·34KiB[11KiB 22KiB] Sc·[0.75 0.00]
+14:59:51.882598 db@janitor F·7 G·0
+14:59:51.882630 db@open done T·22.08937ms
+=============== Aug 18, 2023 (IST) ===============
+15:01:06.761541 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+15:01:06.769234 version@stat F·[3 2] S·34KiB[11KiB 22KiB] Sc·[0.75 0.00]
+15:01:06.769254 db@open opening
+15:01:06.769364 journal@recovery F·1
+15:01:06.769866 journal@recovery recovering @51
+15:01:06.771637 version@stat F·[3 2] S·34KiB[11KiB 22KiB] Sc·[0.75 0.00]
+15:01:06.798637 db@janitor F·7 G·0
+15:01:06.798664 db@open done T·29.402222ms
+=============== Aug 18, 2023 (IST) ===============
+15:07:19.717396 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+15:07:19.719990 version@stat F·[3 2] S·34KiB[11KiB 22KiB] Sc·[0.75 0.00]
+15:07:19.720009 db@open opening
+15:07:19.720107 journal@recovery F·1
+15:07:19.720485 journal@recovery recovering @53
+15:07:19.721289 version@stat F·[3 2] S·34KiB[11KiB 22KiB] Sc·[0.75 0.00]
+15:07:19.734245 db@janitor F·7 G·0
+15:07:19.734278 db@open done T·14.257671ms

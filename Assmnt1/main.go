@@ -3,44 +3,53 @@ package main
 import (
 	//"encoding/json"
 	"fmt"
+	"log"
 	//"log"
-	"io"
-	"net/http"
+	//	"io"
+	//"net/http"
 
-	"github.com/syndtr/goleveldb/leveldb"
+	"github.com/gin-gonic/gin"
+	//"github.com/syndtr/goleveldb/leveldb"
 )
 
-var ldb *leveldb.DB
+var db=Create_Database("db")
+
+var BlkDtls TnxFields
+
 
 func main() {
     
-	 dbInstance := Create_Database("db")
-	 defer dbInstance.db.Close()
+	 BlkDtls.Initialization()
+	 fmt.Println("Printing the initial Default Block")
+	 fmt.Println(BlkDtls)
 
 
+	 fmt.Println("Also calling TransactionAdd Function")
+	 BlkDtls.AddTransaction()
 
-	// Populate the database using the LevelDB instance
-	PopulateDB(dbInstance.db)
-    http.HandleFunc("/process_transactions", func(w http.ResponseWriter, r *http.Request) {
-        jsonData, err := io.ReadAll(r.Body)
-        if err != nil {
-            http.Error(w, "Error reading request body", http.StatusBadRequest)
-            return
-        }
+	 fmt.Println("Performing Operations on File")
+	 BlkDtls.WriteToFile()
+	 BlkDtls.AutoWrite()
 
-        //var BlockInst Block_info
-		BlockInst := Block_info{}
-        err = BlockInst.PushValtxns(jsonData, *dbInstance) // Pass the initialized LevelDB instance
-        if err != nil {
-            http.Error(w, fmt.Sprintf("Error processing transactions: %v", err), http.StatusInternalServerError)
-            return
-        }
+	 fmt.Println(BlkDtls)
 
-        BlockInst.UpdateBlkStts()
 
-        w.WriteHeader(http.StatusOK)
-        w.Write([]byte("Transactions processed successfully"))
-    })
+	 router := gin.Default()
+	 SetupRoutes(router) // Use the SetupRoutes function
+ 
+	 log.Println("Server listening on port 8080...")
+	 router.Run(":8080")
 
-    http.ListenAndServe(":8080", nil)
+
 }
+
+
+
+
+
+
+
+
+
+
+//go router.GET("/admin/reset" , resetDBHandler)
